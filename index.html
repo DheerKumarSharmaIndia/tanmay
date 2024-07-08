@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Password-Protected File</title>
+  <style>body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Password-Protected File</h1>
+    <form id="password-form">
+      <input type="password" id="password-input" placeholder="Enter password" required>
+      <button type="submit">Submit</button>
+    </form>
+    <div id="file-content" class="hidden">
+      <h2>Congratulations!</h2>
+      <p>You have successfully accessed the protected file.</p>
+      <p>Here is the content of the file:</p>
+<iframe
+ width="300"
+  height="200"
+  src="https://photos.google.com" style="width:100%; border: 1px solid black;">
+</iframe>
+
+    </div>
+  </div>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+  var passwordForm = document.getElementById('password-form');
+  var fileContent = document.getElementById('file-content');
+
+  passwordForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    var passwordInput = document.getElementById('password-input');
+    var password = passwordInput.value;
+
+    if (password === '9752') {
+      passwordForm.classList.add('hidden');
+      fileContent.classList.remove('hidden');
+    } else {
+      alert('Incorrect password. Please try again.');
+    }
+  });
+});
+</script>
+</body>
+</html>
